@@ -102,14 +102,14 @@ console.log(contactInfo);
 
 /* Request 3: Find out how many universities have the string "Uni" included in their name. Create a new array called unisWithUni that contains them all. This will be an array of objects. Log the result. */
 const unisWithUni = [];
-function areUni(){
+function haveUni(){
   for(let i=0; i< graduates.length; i++){
     if(graduates[i]["university"].includes("Uni")){
       unisWithUni.push(graduates[i]["university"]);
     }
   }
 }
-areUni();
+haveUni();
 console.log(unisWithUni);
 
 // ==== ADVANCED Array Methods ====
@@ -135,8 +135,8 @@ The zoos want to display both the scientific name and the animal name in front o
 
 */
 const displayNames = [];
-  zooAnimals.forEach(x => {
-    let newString = `Name: ${x.animal_name}, Scientific Name: ${x.scientific_name}`
+  zooAnimals.forEach(species => {
+    let newString = `Name: ${species.animal_name}, Scientific Name: ${species.scientific_name}`
     displayNames.push(newString);
   })
 console.log(displayNames);
@@ -147,7 +147,7 @@ The zoos need a list of all their animal's names (animal_name only) converted to
 
 */
 const lowCaseAnimalNames = [];
-zooAnimals.map(x => lowCaseAnimalNames.push(x.animal_name.toLowerCase()))
+zooAnimals.map(species => lowCaseAnimalNames.push(species.animal_name.toLowerCase()))
 console.log(lowCaseAnimalNames);
 
 /* Request 3: .filter() 
@@ -155,7 +155,7 @@ console.log(lowCaseAnimalNames);
 The zoos are concerned about animals with a lower population count. Using filter, create a new array of objects called lowPopulationAnimals which contains only the animals with a population less than 5.
 
 */
-const lowPopulationAnimals = zooAnimals.filter(x => x.population < 5);
+const lowPopulationAnimals = zooAnimals.filter(species => species.population < 5);
 console.log(lowPopulationAnimals);
 
 /* Request 4: .reduce() 
@@ -167,7 +167,6 @@ const populationTotal = zooAnimals.reduce((accumulator, animal) => {
   return accumulator + animal.population
 },  0);
 console.log(populationTotal);
-
 
 /*
 
